@@ -21,7 +21,7 @@ angular.module('shelterFinder3App')
         params:{
          location: '47.6062095,-122.3320708',
           radius: '500',
-          keyword: 'homeless shelter',
+          keyword: 'homeless+shelter',
           key: 'AIzaSyD7YjbLtUlWB6hn-VeTBJEhdch7sCOJVO0'
         },
         isArray:false

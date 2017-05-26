@@ -10,4 +10,6 @@
 angular.module('shelterFinder3App')
   .controller('MainCtrl', function ($scope, current) {
        $scope.current = current.query();
+
+
   });
