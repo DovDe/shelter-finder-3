@@ -1,21 +1,21 @@
-<div ng-controller="MainCtrl">
-  <h1>{{location}}</h1>
-  <p class="lead">
-    <div>
-         <input type="text" name="location" ng-model="location">
+<div ng-controller="MainCtrl as vm">
 
-    </div>
-  </p>
+    <!-- <div ng-show="vm.place">
+      Address = {{vm.place.formatted_address}} <br/>
+    </div> -->
+    <ng-map class="map" default-style="false" center="current-location">
 
-  <dl>
-        <dt>Currently</dt>
-        <dd>{{current.weather[0].main}}</dd>
-        <dd>{{current.weather[0].description}}</dd>
-        <dt>Temperature</dt>
-        <dd>{{current.main.temp}}</dd>
-        <dt>Wind</dt>
-        <dd>{{current.wind.speed}} mph at {{current.wind.deg}} degrees</dd>
-        <dt>Clouds</dt>
-        <dd>{{current.clouds.all}}%</dd>
-      </dl>
+
+      <custom-control class="searchControl" position="TOP_CENTER">
+        <h2>Find Current Shelters</h2>
+          <input places-auto-complete size=80
+            ng-model="vm.address"
+            component-restrictions="{country:'us'}"
+            types="{{types}}"
+            on-place-changed="vm.placeChanged()" />
+        </custom-control>
+
+        <marker position="" title="Hello World!"></marker>
+
+    </ng-map>
 </div>

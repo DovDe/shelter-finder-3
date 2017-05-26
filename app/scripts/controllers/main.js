@@ -9,7 +9,17 @@
  */
 angular.module('shelterFinder3App')
   .controller('MainCtrl', function ($scope, current, NgMap) {
-       $scope.current = current.query();
+    var vm = this;
 
+
+    // vm.types = "['establishment']";
+    vm.placeChanged = function() {
+      vm.place = this.getPlace();
+      console.log('location', vm.place.geometry.location);
+      vm.map.setCenter(vm.place.geometry.location);
+    }
+    NgMap.getMap().then(function(map) {
+      vm.map = map;
+    });
 
   });
