@@ -8,7 +8,7 @@
  * Controller of the shelterFinder3App
  */
 angular.module('shelterFinder3App')
-  .controller('MainCtrl', function ($scope, current) {
+  .controller('MainCtrl', function ($scope, current, NgMap) {
        $scope.current = current.query();
 
 
