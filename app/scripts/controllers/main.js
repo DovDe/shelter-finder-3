@@ -9,9 +9,5 @@
  */
 angular.module('shelterFinder3App')
   .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  
   });
