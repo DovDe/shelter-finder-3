@@ -11,7 +11,6 @@ angular.module('shelterFinder3App')
   .controller('MainCtrl', function ($scope, current, NgMap) {
     var vm = this;
 
-
     // vm.types = "['establishment']";
     vm.placeChanged = function() {
       vm.place = this.getPlace();
@@ -21,9 +20,15 @@ angular.module('shelterFinder3App')
     NgMap.getMap().then(function(map) {
       vm.map = map;
 
+      vm.home = new google.maps.LatLng(41.850033, -87.6500523);
 
+      vm.setHome = function() {
+      vm.home = vm.map.getCenter();
+
+  }
+     vm.shelters = [];
     });
 
 
-
+    
   });

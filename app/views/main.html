@@ -1,24 +1,35 @@
+
+
+
 <div ng-controller="MainCtrl as vm">
 
     <!-- <div ng-show="vm.place">
       Address = {{vm.place.formatted_address}} <br/>
     </div> -->
     <ng-map class="map" default-style="false" center="seattle">
+          <custom-control class="searchControl" position="TOP_CENTER">
+                <h2>Find Current Shelters</h2>
+                  <input places-auto-complete size=80
+                    ng-model="vm.address"
+                    component-restrictions="{country:'us'}"
+                    on-place-changed="vm.placeChanged()"
+                   />
+            </custom-control>
 
 
-      <custom-control class="searchControl" position="TOP_CENTER">
-        <h2>Find Current Shelters</h2>
-          <input places-auto-complete size=80
-            ng-model="vm.address"
-            component-restrictions="{country:'us'}"
-            types="{{types}}"
-            on-place-changed="vm.placeChanged()" />
-        </custom-control>
+            <custom-control
+                       class="footer"
+                        id="set-home"
+                        position="BOTTOM"
+                        index="1"
+                        on-click="vm.setHome()">
+                  <button class="btn btn-primary btn-large">Find Shelters</button>
+            </custom-control>
 
-
-
-
-        <!-- <marker id='{{station.station_name}}' centered="true" ng-repeat="station in current.fuel_stations" position="{{station.latitude}}, {{station.longitude}}" on-click="showStation(event, station)"> -->
-
+    <marker id='{{}}' centered="true"
+     ng-repeat=""
+     position="{{vm.home}}"
+     on-click="vm.setHome()">
     </ng-map>
+
 </div>

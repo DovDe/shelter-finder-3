@@ -15,11 +15,11 @@ angular.module('shelterFinder3App')
 
 
     // Public API here
-     return $resource('http://maps.googleapis.com/maps/api/place/nearbysearch/json?location=?&radius=500&keyword=homeless+shelter&key=AIzaSyD7YjbLtUlWB6hn-VeTBJEhdch7sCOJVO0', {}, {
+     return $resource('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={{vm.home}}&radius=500&keyword=homeless+shelter&key=AIzaSyD7YjbLtUlWB6hn-VeTBJEhdch7sCOJVO0', {}, {
        query: {
          method:'GET',
          params:{
-           location: null
+            location: null
          },
          isArray:false
        }
