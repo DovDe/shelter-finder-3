@@ -20,6 +20,10 @@ angular.module('shelterFinder3App')
     }
     NgMap.getMap().then(function(map) {
       vm.map = map;
+
+
     });
+
+
 
   });
