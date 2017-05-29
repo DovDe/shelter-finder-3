@@ -24,12 +24,13 @@
                         index="1"
                         on-click="vm.setHome()">
                   <button class="btn btn-primary btn-large">Find Shelters</button>
+                  <p>{{current.query.location}}</P>
+                    <p>{{vm.home}}</p>
             </custom-control>
 
-    <marker id='{{}}' centered="true"
-     ng-repeat=""
-     position="{{vm.home}}"
-     on-click="vm.setHome()">
+    <marker id='{{}}' ng-repeat=""
+     position=""
+     on-click="">
     </ng-map>
 
 </div>

@@ -17,10 +17,10 @@ angular.module('shelterFinder3App')
       console.log('location', vm.place.geometry.location);
       vm.map.setCenter(vm.place.geometry.location);
     }
+    
     NgMap.getMap().then(function(map) {
       vm.map = map;
 
-      vm.home = new google.maps.LatLng(41.850033, -87.6500523);
 
       vm.setHome = function() {
       vm.home = vm.map.getCenter();
@@ -30,5 +30,5 @@ angular.module('shelterFinder3App')
     });
 
 
-    
+
   });
