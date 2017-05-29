@@ -11,7 +11,11 @@ angular.module('shelterFinder3App')
   .factory('current', function ($resource) {
     // Service logic
     // ...
+    var obj = {};
+ obj.apiCall = function(lat, lng){
 
+   console.log(lat, lng);
+   return;
 
 
     // Public API here
@@ -19,9 +23,12 @@ angular.module('shelterFinder3App')
        query: {
          method:'GET',
          params:{
-            location: null
+            location: location
          },
          isArray:false
        }
      });
+   };
+      return obj;
+
    });
