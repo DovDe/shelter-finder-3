@@ -17,6 +17,11 @@ angular.module('shelterFinder3App')
     vm.placeChanged = function() {
       vm.place = this.getPlace();
       console.log('location', vm.place.geometry.location);
+      vm.shelterData = current.apiCall({
+          lat: vm.home.lat(),
+          lng: vm.home.lng()
+      });
+
       vm.map.setCenter(vm.place.geometry.location);
     }
 
@@ -26,7 +31,10 @@ angular.module('shelterFinder3App')
 
       vm.setHome = function() {
       vm.home = vm.map.getCenter();
-      current.apiCall(vm.home.lat(), vm.home.lng());
+      vm.shelterData = current.apiCall({
+          lat: vm.home.lat(),
+          lng: vm.home.lng()
+      });
 
   }
 });  //close setHome function
