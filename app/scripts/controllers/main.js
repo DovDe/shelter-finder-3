@@ -11,7 +11,7 @@ angular.module('shelterFinder3App')
   .controller('MainCtrl', function ($scope, current, NgMap) {
     var vm = this;
 
-    
+
 
     // vm.types = "['establishment']";
     vm.placeChanged = function() {
