@@ -65,11 +65,14 @@ angular.module('shelterFinder3App')
 
   };//close setHome function
 
-vm.showDetail = function (place) {
-  vm.map.showInfoWindow('foo-iw', place.id);
-};
+
 
 }); //close getMap function
+
+vm.showDetail = function (shelter) {
+  vm.shelter = shelter;
+  vm.map.showInfoWindow('foo-iw', shelter.id);
+};
 
 
   });   //close controller
