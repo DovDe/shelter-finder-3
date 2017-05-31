@@ -44,7 +44,7 @@ angular.module('shelterFinder3App')
              lng: vm.home.lng()
          });
           console.log(vm.home.lat());
-       }, 2000);
+       }, 1000);
 
         // set home function
 
@@ -61,10 +61,13 @@ angular.module('shelterFinder3App')
            console.log(vm.home.lat());
            console.log(vm.home.lng());
            console.log(current.query());
-        }, 2000);  //close timeout
+        }, 1000);  //close timeout
 
   };//close setHome function
 
+vm.showDetail = function (place) {
+  vm.map.showInfoWindow('foo-iw', place.id);
+};
 
 }); //close getMap function
 

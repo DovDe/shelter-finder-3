@@ -32,7 +32,16 @@
             </custom-control>
 
 
-            <marker position="[{{place.geometry.location.lat}}, {{place.geometry.location.lng}}]" ng-repeat="place in vm.shelterData.results" on-click="myfunc()" title="{{place.name}}" ></marker>
+            <marker position="[{{place.geometry.location.lat}}, {{place.geometry.location.lng}}]" ng-repeat="place in vm.shelterData.results" on-click="vm.showDetail(place)" title="{{place.name}}" ></marker>
+
+            <info-window id="foo-iw" >
+          <div ng-non-bindable="">
+          name: {{place.name}}<br/>
+
+            <!-- <a href="#" ng-click="vm.clicked()">Click Here</a> -->
+          </div>
+        </info-window>
+
     </ng-map>
 </div>
 </div>

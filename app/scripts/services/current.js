@@ -13,7 +13,7 @@ angular.module('shelterFinder3App')
 
 
     // Public API here
-     return $resource('https://crossorigin.me/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=:lat,:lng&radius=500&keyword=homeless+shelter&key=AIzaSyD7YjbLtUlWB6hn-VeTBJEhdch7sCOJVO0', {}, {
+     return $resource('https://crossorigin.me/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=:lat,:lng&radius=1000&keyword=homeless+shelter&key=AIzaSyD7YjbLtUlWB6hn-VeTBJEhdch7sCOJVO0', {}, {
        query: {
          method:'GET',
          params:{
