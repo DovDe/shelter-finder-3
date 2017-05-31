@@ -28,11 +28,11 @@
                         index="1"
                         on-click="vm.setHome()">
 
-                  <button class="btn btn-primary btn-large">Find Shelters</button>     
+                  <button class="btn btn-primary btn-large">Find Shelters</button>
             </custom-control>
 
 
-            <marker position="[{{vm.home.lat()}}, {{vm.home.lng()}}]" title="hello"></marker>
+            <marker position="[{{place.geometry.location.lat}}, {{place.geometry.location.lng}}]" ng-repeat="place in vm.shelterData.results" on-click="myfunc()" title="{{place.name}}" ></marker>
     </ng-map>
 </div>
 </div>
