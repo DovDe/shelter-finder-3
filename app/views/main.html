@@ -35,12 +35,13 @@
             <marker position="[{{shelter.geometry.location.lat}}, {{shelter.geometry.location.lng}}]" ng-repeat="shelter in vm.shelterData.results" on-click="vm.showDetail(shelter)" title="{{shelter.name}}" ></marker>
 
             <info-window id="foo-iw">
-          <div  class="info-window" ng-non-bindable="" >
+          <div  class="info-window " ng-non-bindable="" position="CENTER" >
+            <p>
             Name: {{vm.shelterData.results[0].name}}<br/>
-            Address: {{vm.shelterData.results[0].address}}
-            <!-- Position 2: {{anchor.getPosition()}}<br/>
-            Position 3: {{vm.map.markers[vm.shop.id].getPosition()}}<br/>
-            <a href="#" ng-click="vm.clicked()">Click Here</a> -->
+            Address: {{vm.shelterData.results[0].address}}<br/>
+
+
+          </p>
           </div>
         </info-window>
 
