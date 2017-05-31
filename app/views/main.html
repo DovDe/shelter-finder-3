@@ -5,7 +5,12 @@
     <!-- <div ng-show="vm.place">
       Address = {{vm.place.formatted_address}} <br/>
     </div> -->
+
+    <div map-lazy-load="https://maps.google.com/maps/api/js"
+      map-lazy-load-params="{{vm.googleMapsUrl}}" >
     <ng-map class="map" default-style="false" center="seattle">
+
+
           <custom-control class="searchControl" position="TOP_CENTER">
                 <h2>Find Current Shelters</h2>
                   <input places-auto-complete size=80
@@ -22,11 +27,12 @@
                         position="BOTTOM"
                         index="1"
                         on-click="vm.setHome()">
-                  <button class="btn btn-primary btn-large">Find Shelters</button>
-                    
+
+                  <button class="btn btn-primary btn-large">Find Shelters</button>     
             </custom-control>
 
 
+            <marker position="[{{vm.home.lat()}}, {{vm.home.lng()}}]" title="hello"></marker>
     </ng-map>
-
+</div>
 </div>
