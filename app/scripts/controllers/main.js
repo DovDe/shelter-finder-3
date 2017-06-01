@@ -11,8 +11,8 @@ angular.module('shelterFinder3App')
   .controller('MainCtrl', function ($timeout, $scope, current, NgMap) {
     var vm = this;
 
+
     // places changed function
-    // vm.types = "['establishment']";
     vm.placeChanged = function() {
       vm.place = this.getPlace();
       console.log('location', vm.place.geometry.location);
@@ -25,8 +25,10 @@ angular.module('shelterFinder3App')
     };  // close placeChanged
 
 
+
+
    //  get map function
-     NgMap.getMap().then(function(map) {
+     NgMap.getMap().then(function(map ,evtMap) {
       vm.map = map;
 
     // lazy load function
@@ -42,37 +44,62 @@ angular.module('shelterFinder3App')
          vm.shelterData = current.query({
              lat: vm.home.lat(),
              lng: vm.home.lng()
-         });
+         }); //close shelter data
           console.log(vm.home.lat());
-       }, 2000);
+       }, 2000);  // close timeout function
+
+
+
+
 
         // set home function
 
-      vm.setHome = function() {
-        $timeout(function() {
-          console.debug("Showing the map. The google maps api should load now.");
-          vm.pauseLoading=false;
+            vm.setHome = function() {
+                  $timeout(function() {
+                    vm.pauseLoading=true;
+                    console.log("Starting a timer to wait for 2 seconds before the map will start loading");
 
-          vm.home = vm.map.getCenter();
-          vm.shelterData = current.query({
-              lat: vm.home.lat(),
-              lng: vm.home.lng()
-          });
-           console.log(vm.home.lat());
-           console.log(vm.home.lng());
-           console.log(current.query());
-        }, 2000);  //close timeout
+                    console.debug("Showing the map. The google maps api should load now.");
+                    vm.pauseLoading=false;
 
-  };//close setHome function
+                    vm.home = vm.map.getCenter();
+                    vm.shelterData = current.query({
+                        lat: vm.home.lat(),
+                        lng: vm.home.lng()
+                    }); //Close Shelter Data
+                  }, 1500);  //close timeout
+
+            };//close setHome function
 
 
 
-}); //close getMap function
+    }); //close getMap function
+
+
+
 
 vm.showDetail = function (e, shelter) {
   vm.shelter = shelter;
   vm.map.showInfoWindow('foo-iw', shelter);
 };
 
+
+// event listner function
+
+vm.centerChanged = function(event) {
+  $timeout(function() {
+    vm.pauseLoading=true;
+    console.log("Starting a timer to wait for 2 seconds before the map will start loading");
+
+    console.debug("Showing the map. The google maps api should load now.");
+    vm.pauseLoading=false;
+
+    vm.home = vm.map.getCenter();
+    vm.shelterData = current.query({
+        lat: vm.home.lat(),
+        lng: vm.home.lng()
+    }); //Close Shelter Data
+  }, 2500);  //close timeout
+    };
 
   });   //close controller
