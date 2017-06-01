@@ -25,11 +25,21 @@
                        class="footer"
                         id="set-home"
                         position="BOTTOM"
-                        index="1"
-                        on-click="vm.setHome()">
-                  <button class="btn btn-primary btn-large">Find Shelters</button>
+
+                        >
+                        <div>
+                          <h4>Find Shelters</h4>
+                          <div class="slideThree">
+                          <input type="checkbox" ng-model="shelterValue" value="None" id="slideThree" name="check"/>
+                          <label for="slideThree"></label>
+                        </div>
+                        </div>
+
+                        <!-- <input type="checkbox" ng-model="booleanValue"  position="BOTTOM"></input> -->
+
+                  <!-- <button class="btn btn-primary btn-large" on-click="vm.setHome()">Find Shelters</button> -->
             </custom-control>
-<!-- <custom-control><input type="checkbox" ng-model="booleanValue"  position="BOTTOM" id="shelterCheckbox"></input></custom-control> -->
+
 
             <marker position="[{{shelter.geometry.location.lat}}, {{shelter.geometry.location.lng}}]" ng-repeat="shelter in vm.shelterData.results" on-click="vm.showDetail(shelter)" title="{{shelter.name}}" ></marker>
 
