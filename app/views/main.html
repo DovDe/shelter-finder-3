@@ -34,12 +34,12 @@
 
             <marker position="[{{shelter.geometry.location.lat}}, {{shelter.geometry.location.lng}}]" ng-repeat="shelter in vm.shelterData.results" on-click="vm.showDetail(shelter)" title="{{shelter.name}}" ></marker>
 
-            <info-window id="foo-iw">
-          <div  class="info-window " ng-non-bindable="" position="CENTER" >
+            <info-window id="foo-iw" position="{{vm.shelter.geometry.location.lat}},{{vm.shelter.geometry.location.lng}}">
+          <div  class="info-window " ng-non-bindable="" >
             <p>
-            Name: {{vm.shelterData.results[0].name}}<br/>
-            Address: {{vm.shelterData.results[0].address}}<br/>
-
+            Name: {{vm.shelter.name}}<br/>
+            Address: {{vm.shelter.vicinity}}<br/>
+            <a href="https://www.google.com/maps/place/?q=place_id:{{vm.shelter.place_id}}">Google Maps</a>
 
           </p>
           </div>
