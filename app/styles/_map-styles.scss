@@ -7,8 +7,14 @@ ng-map {
 
 }
 
+custom-control{
+  margin: 0;
+  padding: 0;
+}
+
 .searchControl {
   margin-top: 1em;
+  padding: 1em;
   background: rgba(255,255,255,0.5);
   text-align: center;
 
@@ -22,7 +28,15 @@ ng-map {
    margin: 0;
    padding: 0;
  }
-custom-control{
-  margin: 0;
-  padding: 0;
+
+ .searchInput{
+   padding: 0em;
+  //  margin-top: 2em;
+   margin-left: 3em;
+ }
+.footerControl{
+  width: 100%;
+  background: rgba(255,255,255,0.5);
+  padding: 1em;
+  z-index: 1;
 }

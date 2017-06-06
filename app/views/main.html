@@ -11,37 +11,28 @@
     <ng-map class="map" default-style="false" center="seattle" on-center-changed="vm.centerChanged()">
 
 
-          <custom-control class="searchControl" position="TOP_CENTER">
-                <h2>Find Current Shelters</h2>
-                  <input places-auto-complete size=80
-                    ng-model="vm.address"
-                    component-restrictions="{country:'us'}"
-                    on-place-changed="vm.placeChanged()"
-                   />
+
+            <custom-control class="searchControl searchInput" position="TOP_CENTER">
+              <h2>Find Current Shelters</h2>
+
+              <input places-auto-complete size=80
+                ng-model="vm.address"
+                component-restrictions="{country:'us'}"
+                on-place-changed="vm.placeChanged()"
+               />
             </custom-control>
 
 
-            <custom-control
-                       class="footer"
-                        id="set-home"
-                        position="BOTTOM"
-
-                        >
-                        <div>
-                          <h4>Find Shelters</h4>
-                          <div class="slideThree">
-                          <input type="checkbox" ng-model="shelterValue" value="None" id="slideThree" name="check"/>
-                          <label for="slideThree"></label>
-                        </div>
-                        </div>
-
-                        <!-- <input type="checkbox" ng-model="booleanValue"  position="BOTTOM"></input> -->
-
-                  <!-- <button class="btn btn-primary btn-large" on-click="vm.setHome()">Find Shelters</button> -->
-            </custom-control>
 
 
-            <marker position="[{{shelter.geometry.location.lat}}, {{shelter.geometry.location.lng}}]" ng-repeat="shelter in vm.shelterData.results" on-click="vm.showDetail(shelter)" title="{{shelter.name}}" ></marker>
+
+
+            <marker position="[{{shelter.geometry.location.lat}}, {{shelter.geometry.location.lng}}]"
+             ng-repeat="shelter in vm.shelterData.results"
+              on-click="vm.showDetail(shelter)"
+               title="{{shelter.name}}"
+               animation="DROP">
+             </marker>
 
             <info-window id="foo-iw" position="{{vm.shelter.geometry.location.lat}},{{vm.shelter.geometry.location.lng}}">
           <div  class="info-window " ng-non-bindable="" >
@@ -54,6 +45,15 @@
           </div>
         </info-window>
 
-    </ng-map>
-</div>
-</div>
+        <!-- <custom-control class="footerControl" position="BOTTOM_CENTER">
+
+
+        </custom-control> -->
+
+
+
+
+
+    </ng-map>  <!--  close map   -->
+</div>    <!-- close lazyload map -->
+</div>     <!--close controller -->
